@@ -2,7 +2,7 @@
 
 namespace Poing\Earmark;
 
-use Illuminate\Database\Eloquent\Factory as EloquentFactory;
+use Illuminate\Database\Eloquent\Factories\Factory as EloquentFactory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -34,11 +34,11 @@ class EarmarkServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         // Load Migrations
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
         // Publish Configuration Files
         $this->publishes([
-            __DIR__.'/config/earmark.php' => config_path('earmark.php'),
+            __DIR__ . '/config/earmark.php' => config_path('earmark.php'),
         ], 'earmark-config');
 
         // Load Commands
@@ -62,11 +62,11 @@ class EarmarkServiceProvider extends ServiceProvider
     {
 
         // Register Factories
-        $this->registerEloquentFactoriesFrom(__DIR__.'/database/factories');
+        $this->registerEloquentFactoriesFrom(__DIR__ . '/database/factories');
 
         // Default Package Configuration
-        $this->mergeConfigFrom(__DIR__.'/config/earmark.php', 'earmark');
-        $this->mergeConfigFrom(__DIR__.'/config/default.php', 'earmark');
+        $this->mergeConfigFrom(__DIR__ . '/config/earmark.php', 'earmark');
+        $this->mergeConfigFrom(__DIR__ . '/config/default.php', 'earmark');
 
         $this->app->register(EventServiceProvider::class);
 
