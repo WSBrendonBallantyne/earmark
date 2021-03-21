@@ -12,7 +12,7 @@ abstract class AbstractTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->artisan('migrate');
     }
 
@@ -49,8 +49,8 @@ abstract class AbstractTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
-            \Poing\Earmark\EarmarkServiceProvider::class,
-            //\Poing\Ylem\YlemServiceProvider::class,
+            \wsbrendonballantyne\Earmark\EarmarkServiceProvider::class,
+            //\wsbrendonballantyne\Ylem\YlemServiceProvider::class,
             //'Cartalyst\Sentry\SentryServiceProvider',
             //'YourProject\YourPackage\YourPackageServiceProvider',
         ];

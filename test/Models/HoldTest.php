@@ -2,15 +2,15 @@
 
 namespace Earmark\Test\Models;
 
-use Poing\Earmark\Models\Hold;
+use wsbrendonballantyne\Earmark\Models\Hold;
 
 /**
- * @coversDefaultClass Poing\EarMark\Models\Hold
+ * @coversDefaultClass wsbrendonballantyne\EarMark\Models\Hold
  */
 class HoldTest extends AbstractTest
 {
     /**
-     * @covers Poing\EarMark\Models\Hold::probe()
+     * @covers wsbrendonballantyne\EarMark\Models\Hold::probe()
      */
     public function testHoldClass()
     {

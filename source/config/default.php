@@ -10,14 +10,14 @@ return [
     |
     */
 
-    'model' => Poing\Earmark\Models\EarMark::class,
+    'model' => wsbrendonballantyne\Earmark\Models\EarMark::class,
 
     'columns' => [
         'digit' => 'digit',
         'group' => 'prefix',
     ],
 
-    'hold_model' => Poing\Earmark\Models\Hold::class,
-    'accrual' => Poing\Earmark\Models\Accrual::class,
+    'hold_model' => wsbrendonballantyne\Earmark\Models\Hold::class,
+    'accrual' => wsbrendonballantyne\Earmark\Models\Accrual::class,
 
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Events;
+namespace wsbrendonballantyne\Earmark\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;

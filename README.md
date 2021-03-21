@@ -1,18 +1,18 @@
-[![Build Status](https://travis-ci.com/poing/earmark.svg?branch=master)](https://travis-ci.com/poing/earmark)
+[![Build Status](https://travis-ci.com/wsbrendonballantyne/earmark.svg?branch=master)](https://travis-ci.com/wsbrendonballantyne/earmark)
 [![StyleCI](https://github.styleci.io/repos/190128345/shield?branch=0.1.8&style=flat)](https://github.styleci.io/repos/190128345)
-[![Coverage Status](https://coveralls.io/repos/github/poing/earmark/badge.svg?branch=0.1.8)](https://coveralls.io/github/poing/earmark?branch=0.1.8)
+[![Coverage Status](https://coveralls.io/repos/github/wsbrendonballantyne/earmark/badge.svg?branch=0.1.8)](https://coveralls.io/github/wsbrendonballantyne/earmark?branch=0.1.8)
 
 # Earmark
 
-A Laravel package to earmark sequential values in a series and eliminate any gaps in the series when values are `unset`.  *Allowing for values to be reused.*
+A Laravel package to earmark sequential values in a series and eliminate any gaps in the series when values are `unset`. _Allowing for values to be reused._
 
-It can be used to fetch the next value (or array of values) to be used in an application.  Database locking is used to *prevent* duplicate values from being returned.
+It can be used to fetch the next value (or array of values) to be used in an application. Database locking is used to _prevent_ duplicate values from being returned.
 
 # An example...
 
-Reserving the next available phone extension for a user.  The phone extension can be reserved by the active session, preventing other sessions from obtaining the same value.  
+Reserving the next available phone extension for a user. The phone extension can be reserved by the active session, preventing other sessions from obtaining the same value.
 
-When a user leaves the phone extension can be *recycled*, the value can be `unset()`.  Making the value available again for a *future* request.
+When a user leaves the phone extension can be _recycled_, the value can be `unset()`. Making the value available again for a _future_ request.
 
 # Getting Started
 
@@ -21,7 +21,7 @@ When a user leaves the phone extension can be *recycled*, the value can be `unse
 Run this at the command line:
 
 ```
-composer require poing/earmark
+composer require wsbrendonballantyne/earmark
 ```
 
 This will update composer.json and install the package into the vendor/ directory.
@@ -48,23 +48,23 @@ php artisan migrate
 
 This package is designed to use Laravel Queues, to defer the time consuming task of repopulating the available pool of values.
 
-You may want to change the default `QUEUE_CONNECTION` to use another strategy.  But the package *also* works with the default `sync`, but **may** cause latency in your application.
+You may want to change the default `QUEUE_CONNECTION` to use another strategy. But the package _also_ works with the default `sync`, but **may** cause latency in your application.
 
 # Settings
 
 ## Hold Size
 
-This is the number of series values that are kept in an available pool.  Once the pool drops below a certain level, more values are added to the pool.  *This is where unused values are recycled.*
+This is the number of series values that are kept in an available pool. Once the pool drops below a certain level, more values are added to the pool. _This is where unused values are recycled._
 
-### Important: 
+### Important:
 
-* Replenishing the hold **will** be time consuming and *may* take **minutes** to complete.  
-* Depending on how you use Earmark, the hold size should be a *multiple* of the **maximum** `get()` requests expected.
-* Hold size *should* be configured to allow for a sufficient number of `get()` requests **after** falling below one-third.
+- Replenishing the hold **will** be time consuming and _may_ take **minutes** to complete.
+- Depending on how you use Earmark, the hold size should be a _multiple_ of the **maximum** `get()` requests expected.
+- Hold size _should_ be configured to allow for a sufficient number of `get()` requests **after** falling below one-third.
 
 ## Number Range
 
-This package *currently* supports a minimal value.  `range.min` will define the starting value of the series.  *Default: 2000*
+This package _currently_ supports a minimal value. `range.min` will define the starting value of the series. _Default: 2000_
 
 ```
 2000
@@ -73,7 +73,7 @@ This package *currently* supports a minimal value.  `range.min` will define the 
 2003
 ```
 
-*`range.max` may be used in the future.*
+_`range.max` may be used in the future._
 
 ## Zero Padding
 
@@ -87,7 +87,7 @@ Allows the output value to be zero-padded, depending on the needs of the applica
 
 ## Prefix & Suffix
 
-Appends a *prefix* to the output value.
+Appends a _prefix_ to the output value.
 
 ```
 ALPHA2007
@@ -95,23 +95,22 @@ ALPHA002008
 ALPHA00000000002009
 ```
 
-*`suffix` may be used in the future.*
-
+_`suffix` may be used in the future._
 
 # How to Use
 
 There are two ways to use this package:
 
-* `Earmarked` to use the *default* values in the pool.  *The default values are already "Earmarked".*
-* `Earmark` to create a **new** pool of values to use.  *Use custom settings with a new "Earmark".*
+- `Earmarked` to use the _default_ values in the pool. _The default values are already "Earmarked"._
+- `Earmark` to create a **new** pool of values to use. _Use custom settings with a new "Earmark"._
 
 Available Functions:
 
-* `get()`
-  * Returns a *single* formated value.
-  * Will accept *option* integer to return an array of formatted values.
-* `unset($value)`
-  * Accepts *formated* values as a string or array.
+- `get()`
+  - Returns a _single_ formated value.
+  - Will accept _option_ integer to return an array of formatted values.
+- `unset($value)`
+  - Accepts _formated_ values as a string or array.
 
 ## Simple Usage
 
@@ -122,7 +121,7 @@ $serial = Earmarked::get(); // Returns: '2010'
 Earmarked::unset($serial);
 ```
 
-You can also *specify* the number of values to return in an array:
+You can also _specify_ the number of values to return in an array:
 
 ```php
 $serial = Earmarked::get(3); // Returns: [ '2011', '2012', '2013', ]
@@ -131,13 +130,13 @@ Earmarked::unset($serial);
 
 ## Advanced Usage
 
-You can *initialize* a **new** series using `Earmark()` and supplying the following variables:
+You can _initialize_ a **new** series using `Earmark()` and supplying the following variables:
 
-* prefix
-* suffix *(non-functional placeholder)*
-* padding
-* min
-* max *(non-functional placeholder)*
+- prefix
+- suffix _(non-functional placeholder)_
+- padding
+- min
+- max _(non-functional placeholder)_
 
 ```php
 // Earmark(prefix, suffix, padding, min, max)
@@ -146,7 +145,7 @@ $earmark->get(); // Returns: 'ZULU0000005000'
 $earmark->get(3); // Returns: [ 'ZULU0000005001', 'ZULU0000005002', 'ZULU0000005003', ]
 ```
 
-*The new series will not affect the default series, calling the series again **(with the same parameters)** will continue the numeric series.*
+_The new series will not affect the default series, calling the series again **(with the same parameters)** will continue the numeric series._
 
 ```php
 // Default Series
@@ -161,21 +160,21 @@ $earmark->get(3); // Returns: [ 'ZULU0000005005', 'ZULU0000005006', 'ZULU0000005
 
 ## How it works
 
-Searching for gaps in a numerical series of numbers can be resource intensive.  *Depends on the size of the series.*  
+Searching for gaps in a numerical series of numbers can be resource intensive. _Depends on the size of the series._
 
-This package uses two (`2`) tables, one for the series of used numbers and one to `Hold` a group of available numbers for immediate use.  The package will `get()` the next consecutive number from the `Hold` table.
+This package uses two (`2`) tables, one for the series of used numbers and one to `Hold` a group of available numbers for immediate use. The package will `get()` the next consecutive number from the `Hold` table.
 
-When the available numbers in the `Hold` table falls below one-third, this package will repopulate the `Hold` with more numbers.  *This package works best with Laravel queues.*
+When the available numbers in the `Hold` table falls below one-third, this package will repopulate the `Hold` with more numbers. _This package works best with Laravel queues._
 
-Numbers in a series that have been `unset()` will be added to the `Hold` table for *reuse* when updated.  *Numbers in the `Hold` table **are not** sorted, `unset()` numbers will **eventually** be available again.*  
+Numbers in a series that have been `unset()` will be added to the `Hold` table for _reuse_ when updated. _Numbers in the `Hold` table **are not** sorted, `unset()` numbers will **eventually** be available again._
 
 ## Additional Feature
 
 ### Auto-Increment
 
-*Sometimes* you just want the next number in an auto-increment series.  One is included in this package.  It *does not* support `prefix`, *will not* support `suffix`, but you **can** use zero-padding.
+_Sometimes_ you just want the next number in an auto-increment series. One is included in this package. It _does not_ support `prefix`, _will not_ support `suffix`, but you **can** use zero-padding.
 
-**Do not use `unset()` with `increment()` values!  You have been warned!**
+**Do not use `unset()` with `increment()` values! You have been warned!**
 
 ```php
 Earmarked::increment(); // Returns: 1
@@ -187,7 +186,7 @@ $earmark->increment(true); // Returns: '00000000000000000003'
 
 ## Contributing
 
-Thinking of contributing? 
+Thinking of contributing?
 
 1. Fork & clone the project: `git clone git@github.com:your-username/earmark.git`.
 2. Run the tests and make sure that they pass with your setup: `phpunit`.

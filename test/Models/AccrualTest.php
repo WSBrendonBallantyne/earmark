@@ -2,10 +2,10 @@
 
 namespace Earmark\Test\Models;
 
-use Poing\Earmark\Models\Accrual;
+use wsbrendonballantyne\Earmark\Models\Accrual;
 
 /**
- * @coversDefaultClass Poing\EarMark\Models\Accrual
+ * @coversDefaultClass wsbrendonballantyne\EarMark\Models\Accrual
  */
 class AccrualTest extends AbstractTest
 {
@@ -17,7 +17,7 @@ class AccrualTest extends AbstractTest
     }
 
     /**
-     * @covers Poing\EarMark\Models\Accrual::probe()
+     * @covers wsbrendonballantyne\EarMark\Models\Accrual::probe()
      */
     public function testAccrualClass()
     {

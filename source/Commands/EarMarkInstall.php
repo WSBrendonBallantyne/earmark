@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Commands;
+namespace wsbrendonballantyne\Earmark\Commands;
 
 use Illuminate\Console\Command;
 

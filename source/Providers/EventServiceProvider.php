@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Providers;
+namespace wsbrendonballantyne\Earmark\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        \Poing\Earmark\Events\EarMarkRefill::class => [
-            \Poing\Earmark\Listeners\EarMarkLowHold::class,
+        \wsbrendonballantyne\Earmark\Events\EarMarkRefill::class => [
+            \wsbrendonballantyne\Earmark\Listeners\EarMarkLowHold::class,
         ],
     ];
 

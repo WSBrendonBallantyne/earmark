@@ -22,7 +22,7 @@ env:
 # blocklist
 branches:
   except:
-  - /^analysis-.*$/
+    - /^analysis-.*$/
 
 before_install:
   - export COMPOSER_MEMORY_LIMIT=-1
@@ -32,7 +32,7 @@ before_install:
   - composer require --dev "orchestra/testbench:${TESTBENCH}" --prefer-dist --no-update
   #- if: TESTBENCH=6.*
   #  composer require --dev "laravel/legacy-factories"
-    
+
 #  if: ILLUMINATE=5.5.*
 #    - composer require --dev "orchestra/testbench:3.5.*"
 
@@ -65,7 +65,7 @@ matrix:
 before_script:
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction
-  
+
 script:
   - mkdir -p build/logs
   - phpunit --verbose --coverage-clover build/logs/clover.xml
@@ -79,4 +79,4 @@ after_success:
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
-  irc: "irc.freenode.org#poing"
+  irc: "irc.freenode.org#wsbrendonballantyne"

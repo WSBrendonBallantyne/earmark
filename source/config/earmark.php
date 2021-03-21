@@ -62,7 +62,7 @@ return [
     */
 
     /*
-    'model' => Poing\Earmark\Models\EarMark::class,
+    'model' => wsbrendonballantyne\Earmark\Models\EarMark::class,
 
     'columns' => [
         'digit' => 'digit',  // The interger

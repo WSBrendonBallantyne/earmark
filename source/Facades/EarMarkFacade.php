@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Facades;
+namespace wsbrendonballantyne\Earmark\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

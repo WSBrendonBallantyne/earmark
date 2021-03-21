@@ -23,8 +23,8 @@ class CreateEarmarkHoldTable extends Migration
             $table->index(config('earmark.columns.group'));
         });
 
-        // Poing\Earmark\Models\EarMark::max('digit')
-        // Poing\Earmark\Models\EarMark::where('type','alpha')->max('digit')
+        // wsbrendonballantyne\Earmark\Models\EarMark::max('digit')
+        // wsbrendonballantyne\Earmark\Models\EarMark::where('type','alpha')->max('digit')
     }
 
     /**

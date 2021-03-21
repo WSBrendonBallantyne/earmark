@@ -2,15 +2,15 @@
 
 namespace Earmark\Test\Models;
 
-use Poing\Earmark\Models\EarMark;
+use wsbrendonballantyne\Earmark\Models\EarMark;
 
 /**
- * @coversDefaultClass Poing\EarMark\Models\EarMark
+ * @coversDefaultClass wsbrendonballantyne\EarMark\Models\EarMark
  */
 class EarMarkTest extends AbstractTest
 {
     /**
-     * @covers Poing\EarMark\Models\EarMark::probe()
+     * @covers wsbrendonballantyne\EarMark\Models\EarMark::probe()
      */
     public function testEarMarkClass()
     {
@@ -19,7 +19,7 @@ class EarMarkTest extends AbstractTest
 
     public function testRefill()
     {
-        $earmark = new \Poing\Earmark\Http\Controllers\Serial;
+        $earmark = new \wsbrendonballantyne\Earmark\Http\Controllers\Serial;
         $data = $earmark->get();
         $earmark->get(30);
         $earmark->unset($data);

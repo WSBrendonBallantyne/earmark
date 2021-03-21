@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Models;
+namespace wsbrendonballantyne\Earmark\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

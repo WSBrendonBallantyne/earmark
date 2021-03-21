@@ -1,13 +1,13 @@
 <?php
 
-namespace Poing\Earmark\Jobs;
+namespace wsbrendonballantyne\Earmark\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Poing\Earmark\Http\Controllers\Serial;
+use wsbrendonballantyne\Earmark\Http\Controllers\Serial;
 
 class EarmarkQueue implements ShouldQueue
 {

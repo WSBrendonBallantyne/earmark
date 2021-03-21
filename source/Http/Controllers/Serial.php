@@ -1,12 +1,12 @@
 <?php
 
-namespace Poing\Earmark\Http\Controllers;
+namespace wsbrendonballantyne\Earmark\Http\Controllers;
 
 use DB;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
-use Poing\Earmark\Events\EarMarkRefill;
-use Poing\Earmark\Jobs\EarmarkQueue;
+use wsbrendonballantyne\Earmark\Events\EarMarkRefill;
+use wsbrendonballantyne\Earmark\Jobs\EarmarkQueue;
 
 class Serial extends Controller
 {
@@ -57,9 +57,9 @@ class Serial extends Controller
 
         $this->digit = config('earmark.columns.digit');
         $this->group = config('earmark.columns.group');
-        $this->min = ! is_null($altMin) ? $altMin : config('earmark.range.min');
-        $this->max = ! is_null($altMax) ? $altMax : config('earmark.range.max');
-        $this->padding = ! is_null($altPadding) ? $altPadding : config('earmark.padding');
+        $this->min = !is_null($altMin) ? $altMin : config('earmark.range.min');
+        $this->max = !is_null($altMax) ? $altMax : config('earmark.range.max');
+        $this->padding = !is_null($altPadding) ? $altPadding : config('earmark.padding');
 
         $this->initHold();
     }
@@ -92,18 +92,16 @@ class Serial extends Controller
         if (is_array($value)) {
             foreach ($value as $data) {
                 $model::where($this->group, $this->prefix)->
-                //where($this->suffix_col,$this->suffix)->
-                where($this->digit, $this->unfix($data))->
-                delete();
+                    //where($this->suffix_col,$this->suffix)->
+                    where($this->digit, $this->unfix($data))->delete();
             }
         } else {
-            if (! empty($value)) {
+            if (!empty($value)) {
                 //$data $this->unfix($data);
 
                 return $model::where($this->group, $this->prefix)->
-                //where($this->suffix_col,$this->suffix)->
-                where($this->digit, $this->unfix($value))->
-                delete();
+                    //where($this->suffix_col,$this->suffix)->
+                    where($this->digit, $this->unfix($value))->delete();
             }
         }
     }
@@ -112,7 +110,7 @@ class Serial extends Controller
     {
         $data = $this->zeroPadding($number);
 
-        return $this->prefix.$data; // . $this->suffix;
+        return $this->prefix . $data; // . $this->suffix;
     }
 
     private function unfix($number)
@@ -157,22 +155,22 @@ class Serial extends Controller
 
         for ($i = $this->min; $i <= $max; $i++) {
             $used = $model::where(
-                        $this->group,
-                        $this->prefix
-                    )->where(
-                        $this->digit,
-                        $i
-                    )->count();
+                $this->group,
+                $this->prefix
+            )->where(
+                $this->digit,
+                $i
+            )->count();
 
             $unused = $hold::where(
-                        $this->group,
-                        $this->prefix
-                    )->where(
-                        $this->digit,
-                        $i
-                    )->count();
+                $this->group,
+                $this->prefix
+            )->where(
+                $this->digit,
+                $i
+            )->count();
 
-            if ((! $used) && (! $unused)) {
+            if ((!$used) && (!$unused)) {
                 if ($n <= config('earmark.hold')) {
                     $this->insertHold($i);
                     $n++;
@@ -191,7 +189,7 @@ class Serial extends Controller
         $count = $this->checkHold();
         $floor = config('earmark.hold') / 3;
         if ($count < $floor) {
-            Log::info('Earmark Refilled for '.$this->prefix);
+            Log::info('Earmark Refilled for ' . $this->prefix);
 
             $this->generateHold();
         }
@@ -209,7 +207,7 @@ class Serial extends Controller
         //Log::debug('Earmark Hold Intilized');
         if ($this->checkHold() == 0) {
             $this->generateHold();
-            Log::info('Earmark Hold Intilized for '.$this->prefix);
+            Log::info('Earmark Hold Intilized for ' . $this->prefix);
         }
     }
 
@@ -218,7 +216,7 @@ class Serial extends Controller
         //Log::debug('Earmark Hold Intilized');
         if ($this->checkHold() == 0) {
             $this->generateHold();
-            Log::warning('Earmark hold size of ('.config('earmark.hold').") exceeded. \nQueue bypassed");
+            Log::warning('Earmark hold size of (' . config('earmark.hold') . ") exceeded. \nQueue bypassed");
         }
     }
 
@@ -238,12 +236,17 @@ class Serial extends Controller
         $this->checkEmpty();
 
         DB::transaction(
-            function () use (&$hold, &$model, &$digit, &$group, &$data
-        ) {
+            function () use (
+                &$hold,
+                &$model,
+                &$digit,
+                &$group,
+                &$data
+            ) {
                 $pull = $hold::where(
-                $this->group,
-                $this->prefix
-            )->first();
+                    $this->group,
+                    $this->prefix
+                )->first();
                 $data = $pull->digit;
                 $hold::destroy($pull->id);
 
@@ -251,7 +254,8 @@ class Serial extends Controller
                 $push->digit = $data;
                 $push->$group = $this->prefix;
                 $push->save();
-            });
+            }
+        );
 
         //if ($this->checkHold() < config('earmark.hold'))
         //event(new EarMarkRefill());
@@ -274,6 +278,6 @@ class Serial extends Controller
         $data->save();
     }
 
-    // Poing\Earmark\Models\EarMark::max('digit')
-        // Poing\Earmark\Models\EarMark::where('type','alpha')->max('digit')
+    // wsbrendonballantyne\Earmark\Models\EarMark::max('digit')
+    // wsbrendonballantyne\Earmark\Models\EarMark::where('type','alpha')->max('digit')
 }

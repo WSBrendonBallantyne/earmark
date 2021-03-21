@@ -1,15 +1,15 @@
 <?php
 
-namespace Poing\Earmark;
+namespace wsbrendonballantyne\Earmark;
 
 use Illuminate\Database\Eloquent\Factories\Factory as EloquentFactory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Poing\Earmark\Commands\EarMarkInstall;
-use Poing\Earmark\Http\Controllers\Sequential;
-use Poing\Earmark\Http\Controllers\Serial;
-use Poing\Earmark\Providers\EventServiceProvider;
+use wsbrendonballantyne\Earmark\Commands\EarMarkInstall;
+use wsbrendonballantyne\Earmark\Http\Controllers\Sequential;
+use wsbrendonballantyne\Earmark\Http\Controllers\Serial;
+use wsbrendonballantyne\Earmark\Providers\EventServiceProvider;
 
 //use Illuminate\Foundation\AliasLoader;
 
@@ -71,12 +71,12 @@ class EarmarkServiceProvider extends ServiceProvider
         $this->app->register(EventServiceProvider::class);
 
         // @codeCoverageIgnoreStart
-        //Poing\Earmark\Http\Controllers
+        //wsbrendonballantyne\Earmark\Http\Controllers
         $this->app->singleton('earmark', function () {
             return new Serial;
         });
 
-        //Poing\Earmark\Http\Controllers
+        //wsbrendonballantyne\Earmark\Http\Controllers
         $this->app->singleton('sequence', function () {
             return new Sequential;
         });

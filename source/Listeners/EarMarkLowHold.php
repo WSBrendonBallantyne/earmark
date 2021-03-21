@@ -1,12 +1,12 @@
 <?php
 
-namespace Poing\Earmark\Listeners;
+namespace wsbrendonballantyne\Earmark\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
-use Poing\Earmark\Events\EarMarkRefill;
-use Poing\Earmark\Http\Controllers\Serial;
+use wsbrendonballantyne\Earmark\Events\EarMarkRefill;
+use wsbrendonballantyne\Earmark\Http\Controllers\Serial;
 
 class EarMarkLowHold implements ShouldQueue
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Poing\Earmark\Helpers;
+namespace wsbrendonballantyne\Earmark\Helpers;
 
 /**
  * Junk code, attempt to use function in factory.
