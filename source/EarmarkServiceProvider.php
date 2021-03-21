@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory as EloquentFactory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use wsbrendonballantyne\Earmark\Commands\EarMarkInstall;
+use wsbrendonballantyne\Earmark\console\Commands\EarMarkInstall;
 use wsbrendonballantyne\Earmark\Http\Controllers\Sequential;
 use wsbrendonballantyne\Earmark\Http\Controllers\Serial;
 use wsbrendonballantyne\Earmark\Providers\EventServiceProvider;
