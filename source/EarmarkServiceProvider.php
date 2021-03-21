@@ -68,7 +68,7 @@ class EarmarkServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/earmark.php', 'earmark');
         $this->mergeConfigFrom(__DIR__ . '/config/default.php', 'earmark');
 
-        $this->app->register(EventServiceProvider::class);
+        // $this->app->register(EventServiceProvider::class);
 
         // @codeCoverageIgnoreStart
         //wsbrendonballantyne\Earmark\Http\Controllers
