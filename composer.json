@@ -1,9 +1,42 @@
 {
-  "name": "poing/earmark",
+  "name": "wsbrendonballantyne/earmark",
   "description": "Laravel package to generate values in a unique and customizable series.",
-  "keywords": ["auto-increment", "autoincrement", "consecutive", "continual", "continued", "continuing", "eloquent", "ensuing", "extension number", "extension", "following", "going on", "increment", "laravel", "prefix", "sequent", "sequential values", "sequential", "sequential", "serial number", "serial", "series", "succedent", "succeeding", "successional", "successive", "suffix", "unique", "values", "zero fill", "zero-fill", "zerofill"],
+  "keywords": [
+    "auto-increment",
+    "autoincrement",
+    "consecutive",
+    "continual",
+    "continued",
+    "continuing",
+    "eloquent",
+    "ensuing",
+    "extension number",
+    "extension",
+    "following",
+    "going on",
+    "increment",
+    "laravel",
+    "prefix",
+    "sequent",
+    "sequential values",
+    "sequential",
+    "sequential",
+    "serial number",
+    "serial",
+    "series",
+    "succedent",
+    "succeeding",
+    "successional",
+    "successive",
+    "suffix",
+    "unique",
+    "values",
+    "zero fill",
+    "zero-fill",
+    "zerofill"
+  ],
   "version": "0.1.9",
-  "homepage": "https://github.com/poing/earmark",
+  "homepage": "https://github.com/wsbrendonballantyne/earmark",
   "license": "MIT",
   "authors": [
     {
@@ -12,25 +45,25 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/poing/earmark/issues",
-    "irc": "irc://irc.freenode.org/poing"
+    "issues": "https://github.com/wsbrendonballantyne/earmark/issues",
+    "irc": "irc://irc.freenode.org/wsbrendonballantyne"
   },
   "require": {
-        "php": ">=7.2",
-        "illuminate/console": ">=5.8",
-        "illuminate/database": ">=5.8",
-        "illuminate/events": ">=5.8",
-        "illuminate/filesystem": ">=5.8",
-        "illuminate/support": ">=5.8"
+    "php": ">=7.2",
+    "illuminate/console": ">=5.8",
+    "illuminate/database": ">=5.8",
+    "illuminate/events": ">=5.8",
+    "illuminate/filesystem": ">=5.8",
+    "illuminate/support": ">=5.8"
   },
   "require-dev": {
-        "orchestra/testbench": "^5",
-        "phpunit/phpunit": "8.*",
-        "php-coveralls/php-coveralls": "^2.2"
+    "orchestra/testbench": "^5",
+    "phpunit/phpunit": "8.*",
+    "php-coveralls/php-coveralls": "^2.2"
   },
   "autoload": {
     "psr-4": {
-      "Poing\\Earmark\\": "source/"
+      "wsbrendonballantyne\\Earmark\\": "source/"
     }
   },
   "autoload-dev": {
@@ -39,11 +72,11 @@
     }
   },
   "minimum-stability": "stable",
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Poing\\Earmark\\EarmarkServiceProvider"
-            ]
-        }
+  "extra": {
+    "laravel": {
+      "providers": [
+        "wsbrendonballantyne\\Earmark\\EarmarkServiceProvider"
+      ]
     }
+  }
 }
